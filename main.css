@@ -1,0 +1,88 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body,
+html {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    font-family: 'Michroma';
+}
+
+main {
+    font-size: 0;
+}
+
+header {
+    font-size: 50px;
+    text-align: center;
+    padding: 50px;
+    z-index: 1;
+}
+
+.background {
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: relative;
+}
+
+.background::after {
+    content: "";
+    background: url(https://cmkt-image-prd.freetls.fastly.net/0.1.0/ps/1869805/910/607/m1/fpnw/wm0/digital1_cm-.jpg?1478699583&s=a69e573a4221698d8640a193e5460780);
+    opacity: 0.1;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
+}
+
+.textview {
+    font-size: 24px;
+    font-family: 'Source Code Pro';
+    color: black;
+    border-radius: 8px;
+    border-color: darkblue;
+    border-width: 3px;
+    padding: 15px;
+}
+
+.calc {
+    text-align: center;
+    padding-bottom: 500px;
+}
+
+table {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.button {
+    background-color: azure;
+    border-radius: 8px;
+    border-style: outset;
+    border-color: darkblue;
+    border-width: 3px;
+    color: rgb(85, 85, 85);
+    cursor: pointer;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    z-index: 1;
+}
+
+.button:hover {
+    background-color: rgb(77, 77, 252);
+    border-radius: 8px;
+    border-style: outset;
+    border-color: darkblue;
+    border-width: 3px;
+    color: white;
+    transition: 0.3s;
+}
