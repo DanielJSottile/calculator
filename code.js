@@ -1,5 +1,6 @@
 let exp = '',
-    number, decimal, equal, operator, parentheses;
+    number, decimal, equal, operator = false,
+    parentheses;
 
 let textview = document.forms['calculator']['textview'];
 
@@ -9,53 +10,44 @@ function insertNum(num) {
     number = true;
 }
 
-function insertOp() {
-
+function insertOp(op) {
+    if (number) {
+        textview.value = exp + op;
+    }
 }
 
-function insertDec() {
-
+function insertDec(dec) {
+    if (number && !decimal) {
+        textview.value = exp + '.';
+        decimal = true;
+        operator = false;
+    };
 }
 
-function insertParen() {
-
-}
-
-function evaluate(exp) {
-    //we are making our own because eval() has massive security problems.
+function insertParen(paren) {
+    textview.value = exp + paren;
+    parentheses = true;
+    operator = true;
+    number = true;
 }
 
 function equalTo() {
-    //do NOT use eval().  instead, use the evaluate() function you have created
+    exp = eval(exp);
+    textview.value = exp;
+    equal = true;
+    decimal = false;
+    number = false;
 
 }
 
 function clearAll() {
-
+    exp = '';
+    textview.value = exp;
 }
 
 function backspace() {
-
+    exp = textview.value;
+    exp = exp.substring(0, exp.length - 1);
+    textview.value = exp;
+    decimal = false;
 }
-
-// Add event listener for buttons
-const numlist = document.getElementsByClassName("number");
-numlist.forEach(num => num.addEventListener('click', insertNum));
-
-const oplist = document.getElementsByClassName("operator");
-oplist.forEach(op => op.addEventListener('click', insertOp));
-
-const parenlist = document.getElementsByClassName("paren");
-parenlist.forEach(paren => paren.addEventListener('click', insertParen));
-
-const clear = document.getElementsByClassName("clear");
-clear.addEventListener('click', clearAll);
-
-const back = document.getElementsByClassName("back");
-back.addEventListener('click', backspace);
-
-const equal = document.getElementsByClassName("equal");
-equal.addEventListener('click', equalTo);
-
-const dec = document.getElementsByClassName("dec");
-dec.addEventListener('click', insertDec);

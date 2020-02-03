@@ -15,41 +15,39 @@
         <div class="background">
             <header>A Calculator</header>
             <div class="calc">
-                <!-- In here should be 2 windows, one that shows the current number selected,
-        and one that shows the entire thing before you press '='-->
                 <form name="calculator">
                     <input type="text" name="textview" class="textview" disabled>
                 </form>
                 <table>
                     <tr>
-                        <td><input type="button" class="button clear" value="C"></td>
-                        <td><input type="button" class="button paren" value="("></td>
-                        <td><input type="button" class="button paren" value=")"></td>
-                        <td><input type="button" class="button operator" value="/"></td>
+                        <td><input type="button" onclick="clearAll()" class="button clear" value="C"></td>
+                        <td><input type="button" onclick="insertParen('\(')" class="button paren" value="\("></td>
+                        <td><input type="button" onclick="insertParen('\)')" class="button paren" value="\)"></td>
+                        <td><input type="button" onclick="insertOp('/')" class="button operator" value="/"></td>
                     </tr>
                     <tr>
-                        <td><input type="button" class="button number" value="7"></td>
-                        <td><input type="button" class="button number" value="8"></td>
-                        <td><input type="button" class="button number" value="9"></td>
-                        <td><input type="button" class="button operator" value="*"></td>
+                        <td><input type="button" onclick="insertNum('7')" class="button number" value="7"></td>
+                        <td><input type="button" onclick="insertNum('8')" class="button number" value="8"></td>
+                        <td><input type="button" onclick="insertNum('9')" class="button number" value="9"></td>
+                        <td><input type="button" onclick="insertOp('*')" class="button operator" value="*"></td>
                     </tr>
                     <tr>
-                        <td><input type="button" class="button number" value="4"></td>
-                        <td><input type="button" class="button number" value="5"></td>
-                        <td><input type="button" class="button number" value="6"></td>
-                        <td><input type="button" class="button operator" value="-"></td>
+                        <td><input type="button" onclick="insertNum('4')" class="button number" value="4"></td>
+                        <td><input type="button" onclick="insertNum('5')" class="button number" value="5"></td>
+                        <td><input type="button" onclick="insertNum('6')" class="button number" value="6"></td>
+                        <td><input type="button" onclick="insertOp('-')" class="button operator" value="-"></td>
                     </tr>
                     <tr>
-                        <td><input type="button" class="button number" value="1"></td>
-                        <td><input type="button" class="button number" value="2"></td>
-                        <td><input type="button" class="button number" value="3"></td>
-                        <td><input type="button" class="button operator" value="+"></td>
+                        <td><input type="button" onclick="insertNum('1')" class="button number" value="1"></td>
+                        <td><input type="button" onclick="insertNum('2')" class="button number" value="2"></td>
+                        <td><input type="button" onclick="insertNum('3')" class="button number" value="3"></td>
+                        <td><input type="button" onclick="insertOp('+')" class="button operator" value="+"></td>
                     </tr>
                     <tr>
-                        <td><input type="button" class="button back" value="⇦"></td>
-                        <td><input type="button" class="button number" value="0"></td>
-                        <td><input type="button" class="button dec" value="."></td>
-                        <td><input type="button" class="button equal" value="="></td>
+                        <td><input type="button" onclick="backspace()" class="button back" value="⇦"></td>
+                        <td><input type="button" onclick="insertNum('0')" class="button number" value="0"></td>
+                        <td><input type="button" onclick="insertDec()" class="button dec" value="."></td>
+                        <td><input type="button" onclick="equalTo()" class="button equal" value="="></td>
                     </tr>
                 </table>
             </div>
